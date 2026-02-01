@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Rozha+One&family=Rye&family=Yantramanav:wght@400;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.texture-grunge {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: url("https://www.transparenttextures.com/patterns/dust.png");
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: multiply;
+}
+
+.text-3d-retro {
+  color: #E91E63;
+  text-shadow: 
+    2px 2px 0px #FFC107,
+    4px 4px 0px #1a1a2e,
+    6px 6px 0px #1a1a2e,
+    8px 8px 0px #1a1a2e;
+}
+
+.box-shadow-hard {
+  box-shadow: 8px 8px 0px 0px #1a1a2e;
+}
+.box-shadow-hard:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 12px 12px 0px 0px #E91E63;
+}
