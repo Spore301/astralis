@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Star, Heart, Sun, ArrowRight, Sparkles, Zap, Ticket, Smartphone } from 'lucide-react';
+import { Star, Heart, Sun, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
-const GenZRetroLanding = () => {
+const LandingPage = () => {
     const [scrolled, setScrolled] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -31,8 +33,8 @@ const GenZRetroLanding = () => {
                     <div className="hidden md:flex gap-6 font-body font-black uppercase tracking-wider text-sm">
                         <button className="px-4 py-2 hover:bg-[#1a1a2e] hover:text-[#FFC107] transition-colors border-2 border-transparent">Your Vibe</button>
                         <button className="px-4 py-2 hover:bg-[#1a1a2e] hover:text-[#FFC107] transition-colors border-2 border-transparent">Love Sync</button>
-                        <button className="bg-[#009688] text-white px-6 py-2 border-2 border-[#1a1a2e] box-shadow-hard hover:bg-[#00796B] transition-all">
-                            Get Access
+                        <button onClick={() => navigate('/login')} className="bg-[#009688] text-white px-6 py-2 border-2 border-[#1a1a2e] box-shadow-hard hover:bg-[#00796B] transition-all">
+                            Login
                         </button>
                     </div>
                 </div>
@@ -87,7 +89,7 @@ const GenZRetroLanding = () => {
 
                         {/* CTAs */}
                         <div className="flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
-                            <button className="bg-[#E91E63] text-white px-8 py-4 font-body font-black uppercase tracking-widest text-lg border-4 border-[#1a1a2e] box-shadow-hard flex items-center justify-center gap-3 group">
+                            <button onClick={() => navigate('/generate-report')} className="bg-[#E91E63] text-white px-8 py-4 font-body font-black uppercase tracking-widest text-lg border-4 border-[#1a1a2e] box-shadow-hard flex items-center justify-center gap-3 group">
                                 <Sun className="group-hover:rotate-180 transition-transform" />
                                 Reveal The Tea
                             </button>
@@ -141,7 +143,7 @@ const GenZRetroLanding = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
 
                         {/* LIFE REPORT CARD */}
-                        <div className="bg-[#FFF5C3] p-6 border-4 border-[#1a1a2e] box-shadow-hard group cursor-pointer">
+                        <div onClick={() => navigate('/generate-report')} className="bg-[#FFF5C3] p-6 border-4 border-[#1a1a2e] box-shadow-hard group cursor-pointer transition-transform hover:-translate-y-2">
                             <div className="border-4 border-double border-[#1a1a2e] p-6 h-full flex flex-col items-center text-center relative">
                                 <div className="absolute top-0 left-0 bg-[#E91E63] text-white px-3 py-1 font-body font-black uppercase text-xs border-r-4 border-b-4 border-[#1a1a2e]">Trending</div>
 
@@ -163,7 +165,7 @@ const GenZRetroLanding = () => {
                         </div>
 
                         {/* LOVE REPORT CARD */}
-                        <div className="bg-[#FFF5C3] p-6 border-4 border-[#1a1a2e] box-shadow-hard group cursor-pointer">
+                        <div className="bg-[#FFF5C3] p-6 border-4 border-[#1a1a2e] box-shadow-hard group cursor-pointer transition-transform hover:-translate-y-2">
                             <div className="border-4 border-double border-[#1a1a2e] p-6 h-full flex flex-col items-center text-center relative">
                                 <div className="absolute top-0 left-0 bg-[#E91E63] text-white px-3 py-1 font-body font-black uppercase text-xs border-r-4 border-b-4 border-[#1a1a2e]">Spicy</div>
 
@@ -188,7 +190,7 @@ const GenZRetroLanding = () => {
                 </div>
             </section>
 
-            {/* --- CALCULATOR FORM --- */}
+            {/* --- CALCULATOR FORM PREVIEW --- */}
             <section className="py-24 px-6 bg-[#FFF5C3] border-t-4 border-[#1a1a2e]">
                 <div className="max-w-3xl mx-auto">
                     <div className="bg-[#FFC107] p-2 border-4 border-[#1a1a2e] box-shadow-hard transform rotate-1">
@@ -201,13 +203,12 @@ const GenZRetroLanding = () => {
                                 <p className="font-body font-black uppercase text-[#E91E63] tracking-widest">Vibe Check Your Destiny</p>
                             </div>
 
-                            <div className="space-y-4">
-                                <div className="flex flex-col md:flex-row gap-4">
-                                    <input type="text" placeholder="YOUR NAME" className="flex-1 bg-white border-4 border-[#1a1a2e] p-4 font-body font-bold placeholder:text-gray-400 focus:outline-none focus:border-[#E91E63]" />
-                                    <input type="text" placeholder="BIRTH DATE (DD/MM/YYYY)" className="flex-1 bg-white border-4 border-[#1a1a2e] p-4 font-body font-bold placeholder:text-gray-400 focus:outline-none focus:border-[#E91E63]" />
-                                </div>
-                                <button className="w-full bg-[#E91E63] text-white font-retro-west text-2xl py-4 border-4 border-[#1a1a2e] hover:bg-[#1a1a2e] hover:text-[#FFC107] transition-colors shadow-lg mt-4">
-                                    MANIFEST IT
+                            <div className="flex flex-col items-center">
+                                <p className="font-body font-bold text-[#1a1a2e]/70 mb-8 text-center">
+                                    Enter your details to get a free mini-read.
+                                </p>
+                                <button onClick={() => navigate('/generate-report')} className="w-full md:w-auto px-12 bg-[#E91E63] text-white font-retro-west text-2xl py-4 border-4 border-[#1a1a2e] hover:bg-[#1a1a2e] hover:text-[#FFC107] transition-colors shadow-lg">
+                                    START NOW
                                 </button>
                             </div>
                         </div>
@@ -236,4 +237,4 @@ const GenZRetroLanding = () => {
     );
 };
 
-export default GenZRetroLanding;
+export default LandingPage;
